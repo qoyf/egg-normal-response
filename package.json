@@ -1,6 +1,6 @@
 {
   "name": "egg-normal-response-x",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "egg normal response plugin",
   "eggPlugin": {
     "name": "normalResponse",
@@ -37,7 +37,7 @@
     "app.js",
     "config",
     "index.d.ts",
-    "index",
+    "index.js",
     "lib"
   ],
   "ci": {
