@@ -1,4 +1,4 @@
-const { UserRequestError } = require("../../");
+const UserRequestError = require("../../lib");
 const { v4 } = require("uuid")
 /**
  * 
