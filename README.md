@@ -27,7 +27,7 @@ Description here.
 ## Install
 
 ```bash
-$ npm i egg-normal-response --save
+$ npm i egg-normal-response-x --save
 ```
 
 ## Usage
@@ -36,7 +36,7 @@ $ npm i egg-normal-response --save
 // {app_root}/config/plugin.js
 exports.normalResponse = {
   enable: true,
-  package: 'egg-normal-response',
+  package: 'egg-normal-response-x',
 };
 ```
 
@@ -45,13 +45,18 @@ exports.normalResponse = {
 ```js
 // {app_root}/config/config.default.js
 exports.normalResponse = {
+   outSystemError:false,
+   systemErrorCode:500,
+   userErrorCode:600,
+   succeeCode:200
 };
 ```
 
 see [config/config.default.js](config/config.default.js) for more detail.
 
 ## Example
-
+error 
+throw new UserRequestError("u-token不能为空","xxx",data);
 <!-- example here -->
 
 ## Questions & Suggestions

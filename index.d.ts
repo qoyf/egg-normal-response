@@ -1,5 +1,9 @@
 interface EggNormalResponseOptions {
-    outSystemError: boolean
+    outSystemError: boolean;
+    systemErrorCode: Number;
+    userErrorCode: Number;
+    succeeCode: Number
+
 }
 declare module 'egg' {
     // extend your config
