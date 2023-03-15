@@ -9,7 +9,7 @@ const { v4 } = require("uuid")
 module.exports = function Exception(options, app) {
 
     options = { ...app.config.normalResponse, ...options };
-    console.log(options);
+
     /**
      * 
      * @param {Egg.Context} ctx 
