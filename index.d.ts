@@ -2,7 +2,8 @@ interface EggNormalResponseOptions {
     outSystemError?: boolean;
     systemErrorCode?: Number;
     userErrorCode?: Number;
-    succeeCode?: Number
+    succeeCode?: Number,
+    ignore?: Array<String>,
 }
 
 declare module 'egg' {

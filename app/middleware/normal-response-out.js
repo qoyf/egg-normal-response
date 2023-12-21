@@ -18,7 +18,10 @@ module.exports = function Exception(options, app) {
     return async (ctx, next) => {
         try {
             await next();
-            ctx.body = { code: options.succeeCode, msg: "ok", data: ctx.body }
+            if(!options.ignore || options.ignore.includes(ctx.routerPath)){
+                ctx.body = { code: options.succeeCode, msg: "ok", data: ctx.body };
+            }  
+            
         } catch (err) {
             if (err instanceof UserRequestError) {
                 ctx.body = { code: options.userErrorCode + err.code, msg: err.message, data: err.data };

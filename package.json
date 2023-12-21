@@ -1,6 +1,6 @@
 {
   "name": "egg-normal-response-x",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "egg normal response plugin",
   "eggPlugin": {
     "name": "normalResponse",

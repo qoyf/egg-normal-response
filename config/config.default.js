@@ -3,12 +3,11 @@
 /**
  * egg-normal-response default config
  * @member Config#normalResponse
- * @property {String} SOME_KEY - some description
  */
 exports.normalResponse = {
-    outSystemError:false,
-    systemErrorCode:500,
-    userErrorCode:600,
-    succeeCode:200
-    
+    ignore: Array,
+    outSystemError: false,
+    systemErrorCode: 500,
+    userErrorCode: 600,
+    succeeCode: 200
 };
