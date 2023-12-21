@@ -18,7 +18,7 @@ module.exports = function Exception(options, app) {
     return async (ctx, next) => {
         try {
             await next();
-            if(!options.ignore || options.ignore.includes(ctx.routerPath)){
+            if(!options.ignore || !options.ignore.includes || !options.ignore.includes(ctx.routerPath)){
                 ctx.body = { code: options.succeeCode, msg: "ok", data: ctx.body };
             }  
             
