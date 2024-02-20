@@ -6,9 +6,23 @@ const { v4 } = require("uuid")
  * @param {Egg.Application} app 
  * @returns 
  */
+
+
+
 module.exports = function Exception(options, app) {
 
     options = { ...app.config.normalResponse, ...options };
+
+    RegExp().test()
+    const ignoreReg=[];
+    if(options.ignore){
+        for (let index = 0; index <  options.ignore.length; index++) {
+            const ignore =  options.ignore[index];
+           
+            const ignoreStr= `^${ignore.split("*").join(".*")}$`;
+            ignoreReg.push(RegExp(ignoreStr));
+        }
+    }
 
     /**
      * 
@@ -18,9 +32,13 @@ module.exports = function Exception(options, app) {
     return async (ctx, next) => {
         try {
             await next();
-            if(!options.ignore || !options.ignore.includes || !options.ignore.includes(ctx.routerPath)){
-                ctx.body = { code: options.succeeCode, msg: "ok", data: ctx.body };
-            }  
+            for (let index = 0; index < ignoreReg.length; index++) {
+                const ignore = ignoreReg[index];
+                if(ignore.test(ctx.routerPath)){
+                    return;
+                }
+            }
+            ctx.body = { code: options.succeeCode, msg: "ok", data: ctx.body };
             
         } catch (err) {
             if (err instanceof UserRequestError) {
@@ -39,3 +57,5 @@ module.exports = function Exception(options, app) {
     };
 
 }
+
+
