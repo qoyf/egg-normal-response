@@ -18,8 +18,7 @@
 [snyk-image]: https://snyk.io/test/npm/egg-normal-response/badge.svg?style=flat-square
 [snyk-url]: https://snyk.io/test/npm/egg-normal-response
 [download-image]: https://img.shields.io/npm/dm/egg-normal-response.svg?style=flat-square
-[download-url]: https://npmjs.org/package/egg-normal-response
-
+[download-url]: https://npmjs.org/package/egg-normal-respons
 <!--
 Description here.
 -->
@@ -48,7 +47,8 @@ exports.normalResponse = {
    outSystemError:false,
    systemErrorCode:500,
    userErrorCode:600,
-   succeeCode:200
+   succeeCode:200,
+  ignore: ["/*","*/upload/*","/assets/*","/static/*"]
 };
 ```
 
