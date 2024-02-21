@@ -11,16 +11,20 @@ const { v4 } = require("uuid")
 
 module.exports = function Exception(options, app) {
 
+  
     options = { ...app.config.normalResponse, ...options };
 
-    RegExp().test()
+   
     const ignoreReg=[];
     if(options.ignore){
         for (let index = 0; index <  options.ignore.length; index++) {
+            
             const ignore =  options.ignore[index];
-           
-            const ignoreStr= `^${ignore.split("*").join(".*")}$`;
-            ignoreReg.push(RegExp(ignoreStr));
+            if(ignore){
+                const ignoreStr= `^${ignore.split("*").join(".*")}$`;
+                ignoreReg.push(RegExp(ignoreStr));
+            }
+          
         }
     }
 
