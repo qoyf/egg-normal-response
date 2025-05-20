@@ -43,10 +43,12 @@ module.exports = function Exception(options, app) {
                 }
             }
             ctx.body = { code: options.succeeCode, msg: "ok", data: ctx.body };
-            
         } catch (err) {
             if (err instanceof UserRequestError) {
                 ctx.body = { code: options.userErrorCode + err.code, msg: err.message, data: err.data };
+                ctx.logger.warn(err);
+            }else if (err.name=='UnprocessableEntityError' && err.code=='invalid_param') { // 添加对ValidationError的处理
+                ctx.body = { code: err.code, msg: err.message, errors: err.errors };
                 ctx.logger.warn(err);
             } else {
                 const errId = v4();
