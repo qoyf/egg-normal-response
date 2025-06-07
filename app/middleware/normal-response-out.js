@@ -42,7 +42,11 @@ module.exports = function Exception(options, app) {
                     return;
                 }
             }
+            const val =ctx.body;
             ctx.body = { code: options.succeeCode, msg: "ok", data: ctx.body };
+            if(!val && ctx.status===204){
+                ctx.status=200;
+             }
         } catch (err) {
             if (err instanceof UserRequestError) {
                 ctx.body = { code: options.userErrorCode + err.code, msg: err.message, data: err.data };
